@@ -53,7 +53,7 @@ with DAG('http-to-s3-to-snowflake',
         python_callable=upload_json_to_s3,
         op_kwargs={
             "xcom_task_id": "rest_api_call",
-            "bucket_name": "airflow-success",
+            "bucket_name": "enter-your-bucket-here",
             "key": "demo-files/http-to-s3-to-snowflake-demo/holidays.json",
             "replace": True
         }
@@ -64,7 +64,7 @@ with DAG('http-to-s3-to-snowflake',
         snowflake_conn_id="my_snowflake_conn",
         sql=f"sql/calendarific_holidays_2019.sql",
         params={
-            "schema_name": "sandbox_chronek",
+            "schema_name": "enter-your-schema-here",
             "table_name": "calendarific_holidays_2019"
         }
     )
